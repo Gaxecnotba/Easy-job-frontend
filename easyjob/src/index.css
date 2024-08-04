@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #def2f1;
+}
+
+.textcolor {
+  color: white;
+}
+div .bordercolor {
+  border-color: #2c3e50;
+}
