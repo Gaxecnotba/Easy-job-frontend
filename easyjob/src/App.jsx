@@ -8,7 +8,7 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 
 export default function App() {
   return (
-    <div className="">
+    <div>
       <Navbar />
       <AuthProvider>
         <Routes>
