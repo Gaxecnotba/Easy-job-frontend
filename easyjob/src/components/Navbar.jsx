@@ -31,7 +31,7 @@ export default function Navbar() {
             <FaUser />
           </button>
           {isDropdownOpen && (
-            <div className="absolute right-0 mt-1 p-2 w-auto bg-navarbar border bordercolor rounded shadow-lg z-10">
+            <div className="absolute mt-1 p-2 w-auto bg-navarbar border bordercolor rounded shadow-lg z-10">
               <ul className="">
                 <li className="textcolor cursor-pointer">Email</li>
                 <li className="textcolor cursor-pointer">Profile</li>
