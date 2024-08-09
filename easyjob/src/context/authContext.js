@@ -5,6 +5,7 @@ import {
   onAuthStateChanged,
   signOut,
   sendPasswordResetEmail,
+  getIdToken,
 } from "firebase/auth";
 import { auth } from "../firebase";
 
@@ -29,6 +30,15 @@ export function AuthProvider({ children }) {
 
   const resetPassword = (email) => sendPasswordResetEmail(auth, email);
 
+  const getToken = async () => {
+    if (user) {
+      const token = await getIdToken(user);
+      console.log(token);
+      return token;
+    }
+    return null;
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -40,7 +50,7 @@ export function AuthProvider({ children }) {
 
   return (
     <authContext.Provider
-      value={{ signup, login, user, logout, loading, resetPassword }}
+      value={{ signup, login, user, logout, loading, resetPassword, getToken }}
     >
       {children}
     </authContext.Provider>
