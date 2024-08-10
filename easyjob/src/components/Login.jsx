@@ -8,7 +8,7 @@ export function Login() {
     email: "",
     password: "",
   });
-  const { login, resetPassword, getToken } = useAuth();
+  const { login, resetPassword } = useAuth();
   const navigate = useNavigate();
   const [error, setError] = useState();
 
@@ -20,36 +20,6 @@ export function Login() {
     setError("");
     try {
       await login(user.email, user.password);
-
-      // Wait for the user state to be updated
-      if (!user) {
-        throw new Error("User is not authenticated");
-      }
-
-      const idToken = await getToken();
-      if (!idToken) {
-        throw new Error("Failed to retrieve ID token");
-      }
-
-      const postData = {
-        title: "Post Title",
-        description: "Post Description",
-        job_location: "Location",
-      };
-
-      const response = await fetch("http://localhost:3000/createpost", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${idToken}`, // Enviar el idToken en la cabecera de autorización
-        },
-        body: JSON.stringify({ postData }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
       navigate("/");
     } catch (error) {
       setError(error.message);
