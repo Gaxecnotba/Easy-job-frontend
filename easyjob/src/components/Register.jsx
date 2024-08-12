@@ -19,7 +19,8 @@ export function Register() {
     e.preventDefault();
     setError("");
     try {
-      await signup(user.email, user.password);
+      const response = await signup(user.email, user.password);
+      console.log(response);
       navigate("/");
     } catch (error) {
       setError(error.message);
@@ -28,7 +29,7 @@ export function Register() {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="w-full max-w-xs">
+      <div className="w-[350px]">
         {error && <Alert message={error} />}
 
         <form
