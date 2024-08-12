@@ -1,11 +1,7 @@
 import { useAuth } from "../context/authContext";
 
 export function Home() {
-  const { user, logout, loading } = useAuth();
-
-  const handleLogout = async () => {
-    await logout();
-  };
+  const { user, loading } = useAuth();
 
   if (loading) return <h1>Loading...</h1>;
 
@@ -13,7 +9,6 @@ export function Home() {
     <div>
       Home
       <h1>Welcome {user.email}</h1>
-      <button onClick={handleLogout}>logout</button>
     </div>
   );
 }

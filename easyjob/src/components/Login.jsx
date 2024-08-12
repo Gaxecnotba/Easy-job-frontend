@@ -38,8 +38,8 @@ export function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="w-full max-w-xs">
+    <div className="flex w-full h-screen items-center justify-center">
+      <div className="w-[350px]">
         {error && <Alert message={error} />}
 
         <form
