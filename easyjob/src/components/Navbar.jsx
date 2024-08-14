@@ -75,7 +75,11 @@ export default function Navbar() {
             )}
           </div>
         ) : (
-          <></>
+          <>
+            <a href="/login" className="flex items-center space-x-4 gap-10">
+              Sign in
+            </a>
+          </>
         )}
       </div>
     </nav>
