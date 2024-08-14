@@ -1,22 +1,36 @@
 import { FaUser } from "react-icons/fa";
 import { useState } from "react";
-import logo from "../assets/logo.jpg";
+
+import { useAuth } from "../context/authContext";
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
+  const { user, logout } = useAuth();
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+
+  const handleLogout = () => {
+    try {
+      logout();
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
+
   return (
-    <nav className="bg-navarbar">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="bg-navbar">
+      <div className="max-w-screen-xl text-white flex flex-wrap items-center justify-between mx-auto p-3">
         <div className="flex justify-between">
-          <a href="/" className="textcolor">
-            <img src={logo} alt="logo" className="h-10" />
+          <a href="/" className="teko-text text-4xl custom-text-border">
+            <h1>Easyjobs</h1>
           </a>
         </div>
         <div className="flex items-center space-x-4 gap-10">
-          <a href="/" className="flex items-center space-x-4 gap-10 textcolor">
+          <a href="/" className="flex items-center space-x-4 gap-10">
             Home
           </a>
           <a href="/#" className="textcolor">
@@ -26,21 +40,43 @@ export default function Navbar() {
             About
           </a>
         </div>
-        <div className="z-10 hiddendivide-y divide-gray-100" id="Dropdownmenu">
-          <button className="textcolor" onClick={toggleDropdown}>
-            <FaUser />
-          </button>
-          {isDropdownOpen && (
-            <div className="absolute mt-1 p-2 w-auto bg-navarbar border bordercolor rounded shadow-lg z-10">
-              <ul className="">
-                <li className="textcolor cursor-pointer">Email</li>
-                <li className="textcolor cursor-pointer">Profile</li>
-                <li className="textcolor cursor-pointer">Applied Jobs</li>
-                <li className="textcolor cursor-pointer">Sign out</li>
-              </ul>
-            </div>
-          )}
-        </div>
+        {user ? (
+          <div
+            className="z-10 hiddendivide-y divide-gray-100"
+            id="Dropdownmenu"
+          >
+            <button className="textcolor" onClick={toggleDropdown}>
+              <FaUser />
+            </button>
+            {isDropdownOpen && (
+              <div className="bg-bgmain absolute mt-3 p-3 w-[200px] h-[130px] border rounded shadow-xl">
+                <ul className="text-darkgray text-sm">
+                  {user ? (
+                    <li className="mb-1 font-bold">{user.email}</li>
+                  ) : (
+                    <></>
+                  )}
+
+                  <li className="mb-1">Profile</li>
+                  <li className="mb-1">Applied Jobs</li>
+                  <div className="p-2 text-center text-navbar font-bold hover:text-green-400">
+                    {user ? (
+                      <li>
+                        <button onClick={handleLogout}>Logout</button>
+                      </li>
+                    ) : (
+                      <li>
+                        <Link to={"/login"}></Link>
+                      </li>
+                    )}
+                  </div>
+                </ul>
+              </div>
+            )}
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     </nav>
   );

@@ -2,13 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  li {
+    @apply cursor-pointer;
+  }
+  body {
+    @apply w-full h-full;
+  }
+}
+
 body {
   background-color: #def2f1;
 }
 
-.textcolor {
-  color: white;
+.teko-text {
+  font-family: "Teko", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
-div .bordercolor {
-  border-color: #2c3e50;
+
+.custom-text-border {
+  text-shadow: 1px 1px 0 #000, /* Shadow in black */ -1px -1px 0 #000,
+    1px -1px 0 #000, -1px 1px 0 #000;
 }

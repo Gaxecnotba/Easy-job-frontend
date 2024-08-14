@@ -3,11 +3,7 @@ import { useAuth } from "../context/authContext";
 import axios from "axios";
 
 export function Home() {
-  const { user, logout, loading } = useAuth();
-
-  const handleLogout = async () => {
-    await logout();
-  };
+  const { user, loading } = useAuth();
 
   console.log(user);
 
@@ -34,7 +30,6 @@ export function Home() {
     <div>
       Home
       <h1>Welcome {user.email}</h1>
-      <button onClick={handleLogout}>logout</button>
     </div>
   );
 }

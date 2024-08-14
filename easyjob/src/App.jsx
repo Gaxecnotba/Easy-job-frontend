@@ -9,8 +9,8 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 export default function App() {
   return (
     <div>
-      <Navbar />
       <AuthProvider>
+        <Navbar />
         <Routes>
           <Route
             path="/"
