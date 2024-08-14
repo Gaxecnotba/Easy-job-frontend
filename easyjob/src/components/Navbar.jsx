@@ -57,7 +57,9 @@ export default function Navbar() {
                     <></>
                   )}
 
-                  <li className="mb-1">Profile</li>
+                  <Link className="mb-1" to={"/profile"}>
+                    Profile
+                  </Link>
                   <li className="mb-1">Applied Jobs</li>
                   <div className="p-2 text-center text-navbar font-bold hover:text-green-400">
                     {user ? (
