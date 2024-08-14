@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../context/authContext";
 import { Link, useNavigate } from "react-router-dom";
 import { Alert } from "./Alert";
+import axios from "axios";
 
 export function Register() {
   const [user, setUser] = useState({
@@ -19,9 +20,22 @@ export function Register() {
     e.preventDefault();
     setError("");
     try {
-      const response = await signup(user.email, user.password);
-      console.log(response);
-      navigate("/");
+      const signIn = await signup(user.email, user.password);
+      if (signIn) {
+        const { uid, email } = signIn.user; // Retrieve uid and email from Firebase user object
+        const usercreated = await axios.post(
+          "http://localhost:3000/users/create",
+          {
+            uid: uid,
+            email: email,
+          }
+        );
+        if (usercreated.data.message === "User created successfully") {
+          navigate("/");
+        }
+      } else {
+        setError("Error in signing up");
+      }
     } catch (error) {
       setError(error.message);
     }
