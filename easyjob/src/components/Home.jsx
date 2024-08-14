@@ -28,8 +28,7 @@ export function Home() {
 
   return (
     <div>
-      Home
-      <h1>Welcome {user.email}</h1>
+      <h1>Welcome to Easyjobs</h1>
     </div>
   );
 }
