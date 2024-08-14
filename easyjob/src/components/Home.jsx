@@ -14,14 +14,9 @@ export function Home() {
   useEffect(() => {
     const loadUser = async () => {
       try {
-        const token = await user.getIdToken();
+        // const token = await user.getIdToken();
         const response = await axios.get(
-          `http://localhost:3000/users/${user.uid}`,
-          {
-            headers: {
-              authtoken: token,
-            },
-          }
+          `http://localhost:3000/users/${user.uid}`
         );
         console.log(response.data);
       } catch (error) {
