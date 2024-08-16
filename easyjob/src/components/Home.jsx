@@ -14,8 +14,8 @@ export function Home() {
     // Obtener todos los posts de la API
     const fetchPosts = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/posts");
-        setPosts(response.data);
+        const response = await axios.get("http://localhost:3000/jobs");
+        setPosts(response.data.jobs);
       } catch (err) {
         console.error(err);
       }
@@ -38,7 +38,7 @@ export function Home() {
           <h2 className="text-lg font-semibold mb-4">All Posts</h2>
           {posts.map((post) => (
             <div
-              key={post.title}
+              key={post.uid}
               className="cursor-pointer p-2 hover:bg-gray-200 rounded"
               onClick={() => handlePostClick(post)}
             >
