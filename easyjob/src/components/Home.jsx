@@ -14,7 +14,7 @@ export function Home() {
     // Obtener todos los posts de la API
     const fetchPosts = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/posts");
+        const response = await axios.get("http://localhost:3000/jobs");
         setPosts(response.data);
       } catch (err) {
         console.error(err);
