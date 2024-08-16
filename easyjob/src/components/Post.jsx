@@ -21,16 +21,13 @@ const Post = () => {
 
     try {
       const uid = user.uid;
-      const createPost = await axios.post("http://localhost:3000/createpost", {
+      await axios.post("http://localhost:3000/createpost", {
         uid: uid,
         title: post.title,
         description: post.description,
         location: post.location,
       });
-      console.log(createPost);
-      if (createPost.data.message === "Post created successfully!") {
-        navigate("/");
-      }
+      navigate("/");
     } catch (err) {
       console.error(err);
     }
