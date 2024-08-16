@@ -1,19 +1,39 @@
 import { useState } from "react";
+import { useAuth } from "../context/authContext";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const Post = ({ onPostSubmit }) => {
+const Post = () => {
   const [post, setPost] = useState({
     title: "",
     description: "",
     location: "",
   });
+  const { user } = useAuth();
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setPost({ ...post, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onPostSubmit();
+
+    try {
+      const uid = user.uid;
+      const createPost = await axios.post("http://localhost:3000/createpost", {
+        uid: uid,
+        title: post.title,
+        description: post.description,
+        location: post.location,
+      });
+      console.log(createPost);
+      if (createPost.data.message === "Post created successfully!") {
+        navigate("/");
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
