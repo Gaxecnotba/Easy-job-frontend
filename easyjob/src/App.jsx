@@ -17,8 +17,22 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/post" element={<Post />} />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/post"
+            element={
+              <ProtectedRoute>
+                <Post />
+              </ProtectedRoute>
+            }
+          />{" "}
         </Routes>
       </AuthProvider>
     </div>

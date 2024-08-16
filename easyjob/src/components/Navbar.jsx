@@ -34,7 +34,7 @@ export default function Navbar() {
             Home
           </a>
           <a href="/#" className="textcolor">
-            Create Job
+            Contact
           </a>
           <a href="/#" className="textcolor">
             About
@@ -49,7 +49,7 @@ export default function Navbar() {
               <FaUser />
             </button>
             {isDropdownOpen && (
-              <div className="bg-bgmain absolute mt-3 p-3 w-[200px] h-[150px] border rounded shadow-xl">
+              <div className="bg-bgmain absolute mt-3 p-3 w-[260px] h-[150px] border rounded shadow-xl">
                 <ul className="text-darkgray text-sm">
                   {user ? (
                     <li className="mb-1 font-bold">{user.email}</li>
