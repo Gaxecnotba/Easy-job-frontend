@@ -1,4 +1,3 @@
-import React from "react";
 import Apply from "./Apply";
 
 const Card = ({ job, showApply }) => {
