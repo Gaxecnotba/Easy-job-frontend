@@ -57,7 +57,9 @@ export default function Navbar() {
                     <></>
                   )}
 
-                  <Link className="mb-1">Profile</Link>
+                  <Link className="mb-1" to={"/profile"}>
+                    Profile
+                  </Link>
                   <li className="mb-1">Applied Jobs</li>
                   <Link to={"/post"} className="mb-1">
                     Post
