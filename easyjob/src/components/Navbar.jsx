@@ -57,13 +57,9 @@ export default function Navbar() {
                     <></>
                   )}
 
-<<<<<<< HEAD
                   <Link className="mb-1" to={"/profile"}>
                     Profile
                   </Link>
-=======
-                  <Link className="mb-1">Profile</Link>
->>>>>>> df59874e96f25bf13abed1e296c47d0ee33a2d2e
                   <li className="mb-1">Applied Jobs</li>
                   <div className="p-2 text-center text-navbar font-bold hover:text-green-400">
                     {user ? (
