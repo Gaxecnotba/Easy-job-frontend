@@ -44,6 +44,7 @@ export function Register() {
             cityName: user.city,
           }
         );
+        console.log(usercreated);
         if (usercreated.data.message === "User created successfully") {
           navigate("/");
         }
@@ -100,7 +101,7 @@ export function Register() {
           <div className="mb-3">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="phone"
+              htmlFor="username"
             >
               Username
             </label>
@@ -124,7 +125,7 @@ export function Register() {
               type="text"
               name="phone"
               placeholder="123-456-7890"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               onChange={handleChange}
             />
           </div>
@@ -140,12 +141,17 @@ export function Register() {
                 onChange={handleChange}
               >
                 <option
-                  type="text"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  value="null"
+                >
+                  Null
+                </option>
+                <option
+                  value="Canada"
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 >
-                  Country
+                  Canada
                 </option>
-                <option value="01">Canada</option>
               </select>
             </div>
           </div>
@@ -161,12 +167,12 @@ export function Register() {
                 onChange={handleChange}
               >
                 <option value="">Province</option>
-                <option value="01">Alberta</option>
-                <option value="02">British Columbia</option>
-                <option value="03">Manitoba</option>
-                <option value="04">New Brunswick</option>
-                <option value="05">Ontario</option>
-                <option value="06">Quebec</option>
+                <option value="Alberta">Alberta</option>
+                <option value="British Columbia">British Columbia</option>
+                <option value="Manitoba">Manitoba</option>
+                <option value="New Brunswick">New Brunswick</option>
+                <option value="Ontario">Ontario</option>
+                <option value="Quebec">Quebec</option>
               </select>
             </div>
           </div>
@@ -182,17 +188,17 @@ export function Register() {
                 onChange={handleChange}
               >
                 <option value="">City </option>
-                <option value="0102">Edmonton</option>
-                <option value="0201">Vancouver</option>
-                <option value="0202">Victoria</option>
-                <option value="0301">Winnipeg</option>
-                <option value="0302">Brandon</option>
-                <option value="0401">Fredericton</option>
-                <option value="0402">Moncton</option>
-                <option value="0501">Toronto</option>
-                <option value="0502">Ottawa</option>
-                <option value="0601">Montreal</option>
-                <option value="0602">Quebec City</option>
+                <option value="Edmonton">Edmonton</option>
+                <option value="Vancouver">Vancouver</option>
+                <option value="Victoria">Victoria</option>
+                <option value="Winnipeg">Winnipeg</option>
+                <option value="Brandon">Brandon</option>
+                <option value="Fredericton">Fredericton</option>
+                <option value="Moncton">Moncton</option>
+                <option value="Toronto">Toronto</option>
+                <option value="Ottawa">Ottawa</option>
+                <option value="Montreal">Montreal</option>
+                <option value="Quebec City">Quebec City</option>
               </select>
             </div>
           </div>
