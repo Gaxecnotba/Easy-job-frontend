@@ -6,6 +6,7 @@ import { Register } from "./components/Register";
 import { AuthProvider } from "./context/authContext";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { Profile } from "./components/Proflie";
+import Post from "./components/Post";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/post" element={<Post />} />
         </Routes>
       </AuthProvider>
     </div>

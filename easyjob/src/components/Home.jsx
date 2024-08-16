@@ -26,9 +26,5 @@ export function Home() {
 
   if (loading) return <h1>Loading...</h1>;
 
-  return (
-    <div>
-      <h1>Welcome to Easyjobs</h1>
-    </div>
-  );
+  return <>Home</>;
 }
