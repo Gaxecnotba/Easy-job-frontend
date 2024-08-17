@@ -14,6 +14,7 @@ module.exports = {
         blue700: "#1d4ed8",
         bgmain: "#def2f1",
         darkgray: "#17252A",
+        greenboton: "#8FCB9B",
       },
     },
   },
