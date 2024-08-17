@@ -7,6 +7,8 @@ import { AuthProvider } from "./context/authContext";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import Post from "./components/Post";
 import { Profile } from "./components/Profile";
+import { About } from "./components/About";
+import { Contact } from "./components/Contact";
 
 export default function App() {
   return (
@@ -17,6 +19,8 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route
             path="/profile"
             element={

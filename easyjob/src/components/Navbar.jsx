@@ -33,12 +33,12 @@ export default function Navbar() {
           <a href="/" className="flex items-center space-x-4 gap-10">
             Home
           </a>
-          <a href="/#" className="textcolor">
+          <Link href="/contact" className="textcolor">
             Contact
-          </a>
-          <a href="/#" className="textcolor">
+          </Link>
+          <Link href="/about" className="textcolor">
             About
-          </a>
+          </Link>
         </div>
         {user ? (
           <div
