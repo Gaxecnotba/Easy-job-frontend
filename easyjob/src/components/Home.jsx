@@ -11,7 +11,6 @@ export function Home() {
   console.log(user);
 
   useEffect(() => {
-    // Obtener todos los posts de la API
     const fetchPosts = async () => {
       try {
         const response = await axios.get("http://localhost:3000/jobs");
@@ -43,7 +42,7 @@ export function Home() {
               onClick={() => handlePostClick(post)}
             >
               <h3 className="text-md font-medium">{post.title}</h3>
-              <p className="text-sm text-gray-600">{post.location}</p>
+              <p className="text-sm text-gray-600">{post.job_location}</p>
             </div>
           ))}
         </div>
