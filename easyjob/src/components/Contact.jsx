@@ -69,7 +69,7 @@ export function Contact() {
           </div>
           <button
             type="submit"
-            className="bg-blue-500 text-white py-2 px-4 rounded-lg"
+            className="bg-greenboton hover:bg-green-700 text-white text-sm font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             onClick={handleAlert}
           >
             Send Message

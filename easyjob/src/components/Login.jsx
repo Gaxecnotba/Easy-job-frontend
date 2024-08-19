@@ -80,13 +80,13 @@ export function Login() {
           </div>
 
           <div className="flex items-center justify-between">
-            <button className="bg-blue500 hover:bg-blue700 text-white text-sm font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            <button className="bg-greenboton hover:bg-green-700 text-white text-sm font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
               Login
             </button>
 
             <a
               href="#!"
-              className="inline-block aling-baseline font-bold text-sm text-blue500 hover:text-blue700"
+              className="inline-block aling-baseline font-bold text-sm text-greenboton hover:text-green-700"
               onClick={handleResetPassword}
             >
               Forgot password?

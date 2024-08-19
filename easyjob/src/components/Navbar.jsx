@@ -30,13 +30,13 @@ export default function Navbar() {
           </a>
         </div>
         <div className="flex items-center space-x-4 gap-10">
-          <a href="/" className="flex items-center space-x-4 gap-10">
+          <Link to="/" className="flex items-center space-x-4 gap-10">
             Home
-          </a>
-          <Link href="/contact" className="textcolor">
+          </Link>
+          <Link to="/contact" className="textcolor">
             Contact
           </Link>
-          <Link href="/about" className="textcolor">
+          <Link to="/about" className="textcolor">
             About
           </Link>
         </div>
